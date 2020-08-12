@@ -31,6 +31,7 @@ CORS_ORIGIN_ALLOW_ALL = DEBUG
 # Application definition
 
 INSTALLED_APPS = [
+    'student',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
