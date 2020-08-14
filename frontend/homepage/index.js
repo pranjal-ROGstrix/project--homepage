@@ -234,7 +234,11 @@ let url = window.backend_url;
             // $scope.eventSources = [getEvents];
             $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
             console.log("template2");
-            setInterval(function () { $('.fc-today-button').click(); }, 1000);
+
+            // to load the calendar 
+            $timeout(() => { jQuery('.fc-today-button').click(); console.log('calendar loded'); }, 500)
+            // (() => { $('.fc-today-button').click(); }, 2000)();
+            // setInterval(function () { $('.fc-today-button').click(); }, 1000);
             // today()
             //  fc-button fc-state-default fc-corner-left fc-corner-right fc-today-button
         })

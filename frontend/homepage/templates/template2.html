@@ -1,6 +1,20 @@
 <style>
-  .temp3 {
+  @keyframes myCalendarAnimate {
+    0% {
+      transform: translateX(-10vw);
+      opacity: 0;
+    }
+    75% {
+      /* opacity: 0.5; */
+    }
+    100% {
+      transform: translateX(0vw);
+      opacity: 1;
+    }
+  }
+  .temp2 {
     border-radius: 0.25rem;
+    animation: myCalendarAnimate 0.5s;
     /* padding: 0 1rem !important; */
     height: 100%;
     width: 100%;
@@ -20,10 +34,6 @@
     font-weight: 700;
     padding: 1rem 1.5rem 0 1.5rem;
     /* letter-spacing: 0.2rem; */
-  }
-
-  table tr {
-    overflow: hidden;
   }
   /*!
 * <%= meta.title %> v<%= meta.version %> Stylesheet
@@ -86,8 +96,7 @@
   .fc-bgevent {
     /* default look for background events */
     background: rgb(143, 223, 130);
-    opacity: 0.3;
-    filter: alpha(opacity=30); /* for IE */
+    opacity: 1;
   }
 
   .fc-nonbusiness {
@@ -1345,7 +1354,7 @@ be a descendant of the grid when it is being dragged.
     border-bottom-color: transparent;
   }
 </style>
-<div class="temp1">
+<div class="temp2" onload="hello()">
   <div class="temp2--title">
     <h2 class="temp2--title--heading text-center">ACADEMIC CALENDAR</h2>
   </div>
