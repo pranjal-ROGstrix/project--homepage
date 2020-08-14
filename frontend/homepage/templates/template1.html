@@ -1,0 +1,82 @@
+<style>
+  .temp1 {
+    border-radius: 0.25rem;
+    /* padding: 0.5rem 1rem; */
+    background: var(--color-background--template);
+  }
+  .temp1--title--heading {
+    font-style: inherit;
+    color: var(--color-heading-template);
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+  .table_heading {
+    margin: 1rem 0;
+  }
+
+  .table {
+    padding: 2rem;
+    font-family: "Open Sans", sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: var(--color-dark--primary);
+  }
+
+  .table td,
+  .table th {
+    border-top: 0;
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+  }
+
+  .table tr {
+    /* background-color: #ddd; */
+  }
+
+  .table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: transparent;
+    color: white;
+  }
+
+  #myChart {
+    margin: 2rem 0;
+  }
+</style>
+<div class="temp1">
+  <div class="temp1--title">
+    <h2 class="temp1--title--heading text-center">ATTENDANCE</h2>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <div class="temp1--chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6"">
+      <div class="temp1--div--table">
+        <table class="table">
+          <tr>
+            <th>Type</th>
+            <th>Precentage</th>
+            <th>P/T</th>
+          </tr>
+          <tr ng-repeat="x in temp1Ctrl.attendance_data">
+            <td>{{x.attendance_type}}</td>
+            <td>{{x.attendance_percentage}}%</td>
+            <td>{{x.attendance_present}}/{{x.attendance_total}}</td>
+          </tr>
+          <tr style="background-color: black; border-radius: 20rem;">
+            <td>OVERALL</td>
+            <td></td>
+            <td>{{temp1Ctrl.total_present_percentage}}%</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

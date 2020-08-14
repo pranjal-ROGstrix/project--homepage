@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
@@ -19,14 +25,11 @@
       rel="stylesheet"
       href="bower_components/angular-gridster/dist/angular-gridster.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="bower_components/fullcalendar/dist/fullcalendar.css"
-    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="./index.css" />
     <title>Student</title>
   </head>
-  <body ng-app="app" ng-controller="MainController as main">
+  <body ng-controller="MainController as main" data-spy="scroll">
     <!-- Http loader -->
     <section ng-hide="false" id="loader">
       <div class="LoaderContainer">
@@ -51,6 +54,7 @@
             background: var(--color-loader-background);
             background-size: cover;
             height: 100vh;
+            z-index: 999999999;
             /* overflow: hidden; */
             /* position: relative; */
           }
@@ -489,7 +493,7 @@
 
     <!-- this section deals with the top navigation bar -->
     <section>
-      <nav class="navbar navbar-expand-lg navbar-styling navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-styling navbar-light bg-light">
         <button
           class="navbar-toggler mr-auto"
           type="button"
@@ -517,41 +521,84 @@
         ></a>
         <a href="#"
           >Mentoring
-          <span class="sidenav__icon"><i class="fa fa-users"></i> </spans
+          <span class="sidenav__icon"><i class="fa fa-users"></i> </span
         ></a>
-        <a href="#">Accounts Detail<span class="sidenav__icon"><i class="fa fa-vcard"></i></span></a>
-        <a href="#">Hostel Procedure<span class="sidenav__icon"><i class="fa fa-building"></i></span></a>
-        <a href="#">Fee Letter<span class="sidenav__icon"><i class="fa fa-file"></i></span></a>
-        <a href="#">Redressal<span class="sidenav__icon"><i class="fa fa-pencil-square-o"></i></span></i></a>
-        <a href="#">Registration<span class="sidenav__icon"><i class="fa fa-lock"></i></span></a>
-        <a href="#">Update DOB<span class="sidenav__icon"><i class="fa fa-birthday-cake"></i></span></a>
+        <a href="#"
+          >Accounts Detail<span class="sidenav__icon"
+            ><i class="fa fa-vcard"></i></span
+        ></a>
+        <a href="#"
+          >Hostel Procedure<span class="sidenav__icon"
+            ><i class="fa fa-building"></i></span
+        ></a>
+        <a href="#"
+          >Fee Letter<span class="sidenav__icon"
+            ><i class="fa fa-file"></i></span
+        ></a>
+        <a href="#"
+          >Redressal<span class="sidenav__icon"
+            ><i class="fa fa-pencil-square-o"></i></span
+        ></a>
+        <a href="#"
+          >Registration<span class="sidenav__icon"
+            ><i class="fa fa-lock"></i></span
+        ></a>
+        <a href="#"
+          >Update DOB<span class="sidenav__icon"
+            ><i class="fa fa-birthday-cake"></i></span
+        ></a>
       </div>
+    </section>
+
+    <section id="main__section" class="main">
+      <div class="div__breadcrumb">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Dashboard
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- LOGGED IN user's name -->
+      <div class="user__name">
+        <h2 class="user__name--h2">
+          Welcome <span class="user__name--h2--span">{{main.user.name}}</span>
+        </h2>
+      </div>
+
+      <!-- gridster time!!! -->
+      <div gridster="main.gridsterOpts">
+        <ul>
+          <li gridster-item="item" ng-repeat="item in main.standardItems">
+            <div ui-view="{{main.templates[$index]}}"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div></div>
     </section>
 
     <div>
       <!-- <script src=""></script> -->
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="./bower_components/jquery/dist/jquery.js"></script>
+      <script src="./bower_components/angular/angular.js"></script>
+      <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
       <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
-      <!-- <script src="bower_components/ui.bootstrap/misc/demo/assets/app.js"></script> -->
-      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
-      <script src="bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
-      <script src="bower_components/moment/min/moment.min.js"></script>
-      <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-      <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-      <script src="bower_components/fullcalendar/dist/gcal.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+      <script src="./bower_components/ui.bootstrap/misc/demo/assets/app.js"></script>
+      <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="./bower_components/javascript-detect-element-resize/jquery.resize.js"></script>
+      <script src="./bower_components/angular-gridster/dist/angular-gridster.min.js"></script>
+      <script src="./bower_components/moment/min/moment.min.js"></script>
+      <!-- <script src="./bower_components/angular-ui-calendar/src/calendar.js"></script> -->
+      <script src="./bower_components/fullcalendar/dist/fullcalendar.js"></script>
+      <script src="./bower_components/fullcalendar/dist/gcal.js"></script>
+      <script src="./templates/calendar.js"></script>
+      <script src="../backend_url.js"></script>
       <script src="./index.js"></script>
       <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-        }
         $("#loader").attr("ng-hide", "true");
       </script>
     </div>
