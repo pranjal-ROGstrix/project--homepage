@@ -1,17 +1,20 @@
 <style>
-  @keyframes myCalendarAnimate {
-    0% {
-      transform: translateX(-10vw);
-      opacity: 0;
-    }
-    75% {
-      /* opacity: 0.5; */
-    }
-    100% {
-      transform: translateX(0vw);
-      opacity: 1;
+  @media screen and (min-width: 700px) {
+    @keyframes myCalendarAnimate {
+      0% {
+        transform: translateX(-10vw);
+        opacity: 0;
+      }
+      75% {
+        /* opacity: 0.5; */
+      }
+      100% {
+        transform: translateX(0vw);
+        opacity: 1;
+      }
     }
   }
+
   .temp2 {
     border-radius: 0.25rem;
     animation: myCalendarAnimate 0.5s;
@@ -36,10 +39,10 @@
     /* letter-spacing: 0.2rem; */
   }
   /*!
-* <%= meta.title %> v<%= meta.version %> Stylesheet
-* Docs & License: <%= meta.homepage %>
-* (c) <%= meta.copyright %>
-*/
+  * <%= meta.title %> v<%= meta.version %> Stylesheet
+  * Docs & License: <%= meta.homepage %>
+  * (c) <%= meta.copyright %>
+  */
 
   .fc {
     direction: ltr;
@@ -56,16 +59,16 @@
   }
 
   /* Colors
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-unthemed th,
-.fc-unthemed td,
-.fc-unthemed thead,
-.fc-unthemed tbody,
-.fc-unthemed .fc-divider,
-.fc-unthemed .fc-row,
-.fc-unthemed .fc-content, /* for gutter border */
-.fc-unthemed .fc-popover {
+  .fc-unthemed td,
+  .fc-unthemed thead,
+  .fc-unthemed tbody,
+  .fc-unthemed .fc-divider,
+  .fc-unthemed .fc-row,
+  .fc-unthemed .fc-content, /* for gutter border */
+  .fc-unthemed .fc-popover {
     border-color: #ddd;
   }
 
@@ -82,8 +85,22 @@
     color: #666;
   }
 
+  /* fc-day-number fc-sat fc-today fc-state-highlight */
+  .fc-day-number.fc-today {
+    height: 20px;
+    width: 20px;
+    background-color: #03dac5 !important;
+    border-radius: 20%;
+    display: inline-block;
+  }
+  /* .fc-row .fc-content-skeleton td, .fc-row .fc-helper-skeleton td { */
   .fc-unthemed .fc-today {
-    background: #fcf8e3;
+    color: black !important;
+    /* color: var(--color-dark-primary) !important; */
+    /* background-color: #bb86fc;
+    border: 1px solid #bb86fc;
+    color: black; */
+    /* background: hsl(210, 50%, 72%); */
   }
 
   .fc-highlight {
@@ -106,13 +123,13 @@
   }
 
   /* Icons (inline elements with styled text that mock arrow icons)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-icon {
     display: inline-block;
     height: 1em;
     line-height: 1em;
-    font-size: 1em;
+    font-size: 1rem;
     text-align: center;
     overflow: hidden;
     font-family: "Courier New", Courier, monospace;
@@ -127,12 +144,12 @@
   }
 
   /*
-Acceptable font-family overrides for individual icons:
-"Arial", sans-serif
-"Times New Roman", serif
+  Acceptable font-family overrides for individual icons:
+  "Arial", sans-serif
+  "Times New Roman", serif
 
-NOTE: use percentage font sizes or else old IE chokes
-*/
+  NOTE: use percentage font sizes or else old IE chokes
+  */
 
   .fc-icon:after {
     position: relative;
@@ -189,7 +206,7 @@ NOTE: use percentage font sizes or else old IE chokes
   }
 
   /* Buttons (styled <button> tags, normalized to work cross-browser)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc button {
     /* force height to include the border and padding */
@@ -208,18 +225,18 @@ NOTE: use percentage font sizes or else old IE chokes
     cursor: pointer;
   }
   /* .fc button:hover {
-outline: 1px solid black;
-border: none;
-}
+  outline: 1px solid black;
+  border: none;
+  }
 
-.fc button:focus {
-outline: none;
-border: none;
-}
-.fc button:active {
-outline: none;
-border: none;
-} */
+  .fc button:focus {
+  outline: none;
+  border: none;
+  }
+  .fc button:active {
+  outline: none;
+  border: none;
+  } */
 
   /* Firefox has an annoying inner border */
   .fc button::-moz-focus-inner {
@@ -235,7 +252,7 @@ border: none;
   .fc-state-default.fc-corner-left {
     /* non-theme */
     /* border-top-left-radius: 4px;
-border-bottom-left-radius: 4px; */
+  border-bottom-left-radius: 4px; */
   }
 
   .fc-state-default.fc-corner-right {
@@ -255,9 +272,9 @@ border-bottom-left-radius: 4px; */
   }
 
   /*
-button states
-borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
-*/
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+  */
 
   .fc-state-default {
     background-color: #f5f5f5;
@@ -316,16 +333,16 @@ borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
   }
 
   /* Buttons Groups
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-button-group {
     display: inline-block;
   }
 
   /*
-every button that is not first in a button group should scootch over one pixel and cover the
-previous button's border...
-*/
+  every button that is not first in a button group should scootch over one pixel and cover the
+  previous button's border...
+  */
 
   .fc .fc-button-group > * {
     /* extra precedence b/c buttons have margin set to zero */
@@ -339,7 +356,7 @@ previous button's border...
   }
 
   /* Popover
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-popover {
     position: absolute;
@@ -388,7 +405,7 @@ previous button's border...
   }
 
   /* Misc Reusable Components
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-divider {
     border-style: solid;
@@ -426,7 +443,7 @@ previous button's border...
   }
 
   /* Tables
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc table {
     width: 100%;
@@ -454,7 +471,7 @@ previous button's border...
   }
 
   /* Fake Table Rows
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc .fc-row {
     /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
@@ -465,7 +482,7 @@ previous button's border...
 
   .fc-row table {
     /* don't put left/right border on anything within a fake row.
-   the outer tbody will worry about this */
+     the outer tbody will worry about this */
     border-left: 0 hidden transparent;
     border-right: 0 hidden transparent;
 
@@ -478,7 +495,7 @@ previous button's border...
   }
 
   /* Day Row (used within the header and the DayGrid)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-row {
     position: relative;
@@ -514,9 +531,9 @@ previous button's border...
   }
 
   /*
-row content (which contains day/week numbers and events) as well as "helper" (which contains
-temporary rendered events).
-*/
+  row content (which contains day/week numbers and events) as well as "helper" (which contains
+  temporary rendered events).
+  */
 
   .fc-row .fc-content-skeleton {
     position: relative;
@@ -539,13 +556,13 @@ temporary rendered events).
   }
 
   .fc-row .fc-content-skeleton tbody td, /* cells with events inside (so NOT the day number cell) */
-.fc-row .fc-helper-skeleton tbody td {
+  .fc-row .fc-helper-skeleton tbody td {
     /* don't put a border between event cells */
     border-top: 0;
   }
 
   /* Scrolling Container
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-scroller {
     -webkit-overflow-scrolling: touch;
@@ -559,7 +576,7 @@ temporary rendered events).
   }
 
   /* Global Event Styles
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-event {
     position: relative; /* for resize handle and other inner positioning */
@@ -586,7 +603,7 @@ temporary rendered events).
   }
 
   .fc-not-allowed, /* causes a "warning" cursor. applied on body */
-.fc-not-allowed .fc-event {
+  .fc-not-allowed .fc-event {
     /* to override an event's custom cursor */
     cursor: not-allowed;
   }
@@ -639,7 +656,7 @@ temporary rendered events).
   }
 
   /* Event Selection (only for touch devices)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-event.fc-selected {
     z-index: 99 !important; /* overcomes inline z-index */
@@ -651,7 +668,7 @@ temporary rendered events).
   }
 
   /* Horizontal Events
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   /* bigger touch area when selected */
   .fc-h-event.fc-selected:before {
@@ -737,10 +754,10 @@ temporary rendered events).
   }
 
   /* DayGrid events
-----------------------------------------------------------------------------------------------------
-We use the full "fc-day-grid-event" class instead of using descendants because the event won't
-be a descendant of the grid when it is being dragged.
-*/
+  ----------------------------------------------------------------------------------------------------
+  We use the full "fc-day-grid-event" class instead of using descendants because the event won't
+  be a descendant of the grid when it is being dragged.
+  */
 
   .fc-day-grid-event {
     margin: 1px 2px 0; /* spacing between events and edges */
@@ -787,7 +804,7 @@ be a descendant of the grid when it is being dragged.
   }
 
   /* Event Limiting
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   /* "more" link that represents hidden events */
 
@@ -823,7 +840,7 @@ be a descendant of the grid when it is being dragged.
   }
 
   /* Now Indicator
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-now-indicator {
     position: absolute;
@@ -831,7 +848,7 @@ be a descendant of the grid when it is being dragged.
   }
 
   /* Utilities
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-unselectable {
     -webkit-user-select: none;
@@ -844,7 +861,7 @@ be a descendant of the grid when it is being dragged.
   }
 
   /* Toolbar
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-toolbar {
     /* text-align: center; */
@@ -869,6 +886,7 @@ be a descendant of the grid when it is being dragged.
     display: flex;
     justify-content: center;
   }
+
   .fc-left h2 {
     font-weight: 300 !important;
     color: white;
@@ -893,18 +911,34 @@ be a descendant of the grid when it is being dragged.
     /* display: inline-block; */
   }
 
+  .fc-button {
+    z-index: 0 !important;
+    margin: none !important;
+    border: none !important;
+    outline: none !important;
+    top: 0 !important;
+  }
+
+  .fc-button .fc-icon {
+    top: 0 !important;
+  }
+
+  .fc-button:active,
+  .fc-button:focus {
+    z-index: 0 !important;
+  }
   /* the things within each left/right/center section */
   /* .fc .fc-toolbar > * > * { */
   /* extra precedence to override button border margins */
   /* float: left;
-margin-left: 0.75em;
-} */
+  margin-left: 0.75em;
+  } */
 
   /* the first thing within each left/center/right section */
   /* .fc .fc-toolbar > * > :first-child { */
   /* extra precedence to override button border margins */
   /* margin-left: 0;
-} */
+  } */
 
   /* title text */
 
@@ -924,8 +958,10 @@ margin-left: 0.75em;
   }
 
   .fc-toolbar .fc-state-down {
-    border: none;
-    outline: none;
+    border: none !important;
+    outline: none !important;
+    z-index: 0 !important;
+    top: 0 !important;
     /* padding: -10rem; */
     /* z-index: 3; */
   }
@@ -940,7 +976,7 @@ margin-left: 0.75em;
   }
 
   /* View Structure
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   /* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
   /* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
@@ -953,14 +989,14 @@ margin-left: 0.75em;
   }
 
   .fc-view, /* scope positioning and z-index's for everything within the view */
-.fc-view > table {
+  .fc-view > table {
     /* so dragged elements can be above the view's main element */
     position: relative;
     z-index: 1;
   }
 
   /* BasicView
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   /* day row structure */
 
@@ -1023,12 +1059,12 @@ margin-left: 0.75em;
     opacity: 0.3;
     filter: alpha(opacity=30); /* for IE */
     /* opacity with small font can sometimes look too faded
-   might want to set the 'color' property instead
-   making day-numbers bold also fixes the problem */
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
   }
 
   /* AgendaView all-day area
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-agenda-view .fc-day-grid {
     position: relative;
@@ -1045,7 +1081,7 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid axis running down the side (for both the all-day area and the slot area)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc .fc-axis {
     /* .fc to overcome default cell styles */
@@ -1067,10 +1103,10 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid Structure
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-time-grid-container, /* so scroll container's z-index is below all-day */
-.fc-time-grid {
+  .fc-time-grid {
     /* so slats/bg/content/etc positions get scoped within here */
     position: relative;
     z-index: 1;
@@ -1141,7 +1177,7 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid Slats (lines that run horizontally)
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-time-grid .fc-slats td {
     height: 1.5em;
@@ -1158,7 +1194,7 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid Highlighting Slots
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-time-grid .fc-highlight-container {
     /* a div within a cell within the fc-highlight-skeleton */
@@ -1173,7 +1209,7 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid Event Containment
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-ltr .fc-time-grid .fc-event-container {
     /* space on the sides of events for LTR (default) */
@@ -1198,7 +1234,7 @@ margin-left: 0.75em;
   }
 
   /* Generic Vertical Event
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-v-event.fc-not-start {
     /* events that are continuing from another day */
@@ -1222,10 +1258,10 @@ margin-left: 0.75em;
   }
 
   /* TimeGrid Event Styling
-----------------------------------------------------------------------------------------------------
-We use the full "fc-time-grid-event" class instead of using descendants because the event won't
-be a descendant of the grid when it is being dragged.
-*/
+  ----------------------------------------------------------------------------------------------------
+  We use the full "fc-time-grid-event" class instead of using descendants because the event won't
+  be a descendant of the grid when it is being dragged.
+  */
 
   .fc-time-grid-event {
     overflow: hidden; /* don't let the bg flow over rounded corners */
@@ -1324,7 +1360,7 @@ be a descendant of the grid when it is being dragged.
   }
 
   /* Now Indicator
---------------------------------------------------------------------------------------------------*/
+  --------------------------------------------------------------------------------------------------*/
 
   .fc-time-grid .fc-now-indicator-line {
     border-top-width: 1px;
@@ -1354,7 +1390,7 @@ be a descendant of the grid when it is being dragged.
     border-bottom-color: transparent;
   }
 </style>
-<div class="temp2" onload="hello()">
+<div class="temp2">
   <div class="temp2--title">
     <h2 class="temp2--title--heading text-center">ACADEMIC CALENDAR</h2>
   </div>

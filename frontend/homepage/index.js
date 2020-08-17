@@ -35,13 +35,13 @@ let url = window.backend_url;
             main.user.name = sessionStorage.name;
             main.user.lib_id = sessionStorage.lib_id;
             console.log(main)
-
+            // "template1", "template2", 
             // gridster 
             main.templates = ["template1", "template2", "template3"]
             main.standardItems = [
                 { sizeX: 6, sizeY: 2, row: 0, col: 0 },//template 1(attendance)
                 { sizeX: 4, sizeY: 2, row: 2, col: 0 },//template 2()
-                // { sizeX: 2, sizeY: 2, row: 3, col: 4 },
+                { sizeX: 2, sizeY: 2, row: 2, col: 4 },
             ];
             main.gridsterOpts = {
                 // columns: 6, // the width of the grid, in columns
@@ -236,7 +236,7 @@ let url = window.backend_url;
             console.log("template2");
 
             // to load the calendar 
-            $timeout(() => { jQuery('.fc-today-button').click(); console.log('calendar loded'); }, 500)
+            $timeout(() => { jQuery('.fc-today-button').click(); console.log('calendar loaded'); }, 500)
             // (() => { $('.fc-today-button').click(); }, 2000)();
             // setInterval(function () { $('.fc-today-button').click(); }, 1000);
             // today()
@@ -249,8 +249,35 @@ let url = window.backend_url;
 
 (() => {
     angular.module('app')
-        .controller('template3Controller', function ($http) {
+        .controller('template3Controller', function ($http, $timeout) {
             let temp3Ctrl = this;
+            // 2020-08-12 12:14:25.381410
+            // new Date(year, month[, date[, hours[, minutes[, seconds[, milliseconds]]]]]);
+            $http({
+                method: 'POST',
+                url: url + 'get_birthdays/',
+                data: {
+                    date: "2020-08-12 12:14:25.381410"
+                }
+            })
+                .then(
+                    mysuccess = (response) => {
+                        console.log(response.data)
+                        temp3Ctrl.birthdays = response.data;
+                    },
+                    myerror = (response) => {
+                        console.log(response.data)
+                    }
+                )
+            // $timeout(() => {
+            //     $('.slimScrollDiv').slimScroll({
+            //         height: '420px',
+            //         railVisible: false,
+            //         alwaysVisible: false,
+            //         position: 'right',
+            //         // wheelStep: 50,
+            //     });
+            // }, 50);
             console.log("template3")
         })
 })();
@@ -293,4 +320,3 @@ let url = window.backend_url;
 (() => { })();
 (() => { })();
 (() => { })();
-

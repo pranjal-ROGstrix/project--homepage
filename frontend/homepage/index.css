@@ -30,6 +30,22 @@ body {
   width: 0.45rem;
 }
 
+/* used in breadcrumb, username and template1 */
+
+@keyframes topAnimation {
+  0% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  75% {
+    /* opacity: 0.4; */
+  }
+  100% {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+}
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: var(--color-background);
@@ -148,7 +164,7 @@ body {
   background-color: var(--color-background);
   /* background-size: 100% 100%; */
   /* width: 100%; */
-  height: 200vh;
+  /* height: 200vh; */
   color: var(--color-dark-primary);
   font-family: "Open Sans", sans-serif;
   padding: 1.5rem;
@@ -164,6 +180,7 @@ body {
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
+  animation: topAnimation 0.5s;
 }
 .breadcrumb-item {
   color: var(--color-dark-secondary) !important;
@@ -181,6 +198,7 @@ body {
 
 /* this deals with the username */
 .user__name {
+  animation: topAnimation 0.5s;
 }
 .user__name--h2 {
   border-radius: 0.25rem;
@@ -205,4 +223,20 @@ body {
   .user__name--h2--span {
     display: block;
   }
+}
+
+.temp1,
+.temp2,
+.temp3,
+.user__name,
+.div__breadcrumb {
+  -webkit-box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+  -moz-box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+  box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+}
+
+.sidenav {
+  -webkit-box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
+  -moz-box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
+  box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
 }
