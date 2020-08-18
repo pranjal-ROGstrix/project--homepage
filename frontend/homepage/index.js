@@ -35,15 +35,15 @@ let url = window.backend_url;
             main.user.name = sessionStorage.name;
             main.user.lib_id = sessionStorage.lib_id;
             console.log(main)
-            // "template1", "template2", "template3", 
-            // gridster 
-            main.templates = ["template1", "template2", "template3", "template4", "template5"]
+            "template1", "template2", "template3", "template4",
+                // gridster 
+                main.templates = ["template1", "template2", "template3", "template4", "template5"]
             main.standardItems = [
                 { sizeX: 6, sizeY: 2, row: 0, col: 0 },//template 1(attendance)
                 { sizeX: 4, sizeY: 2, row: 2, col: 0 },//template 2(calendar)
                 { sizeX: 2, sizeY: 2, row: 2, col: 4 },//template 3(birthday)
-                { sizeX: 3, sizeY: 2, row: 4, col: 0 },//template 4(marks)
-                { sizeX: 3, sizeY: 2, row: 4, col: 3 },//template 5(timetable)
+                { sizeX: 3, sizeY: 3, row: 4, col: 0 },//template 4(marks)
+                { sizeX: 3, sizeY: 3, row: 4, col: 3 },//template 5(timetable)
 
             ];
             main.gridsterOpts = {
@@ -54,7 +54,7 @@ let url = window.backend_url;
                 width: 'auto', // can be an integer or 'auto'. 'auto' scales gridster to be the full width of its containing element
                 colWidth: 'auto', // can be an integer or 'auto'.  'auto' uses the pixel width of the element divided by 'columns'
                 rowHeight: 'match', // can be an integer or 'match'.  Match uses the colWidth, giving you square widgets.
-                margins: [15, 15], // the pixel distance between each widget
+                margins: [20, 20], // the pixel distance between each widget
                 outerMargin: true, // whether margins apply to outer edges of the grid
                 sparse: false, // "true" can increase performance of dragging and resizing for big grid (e.g. 20x50)
                 isMobile: false, // stacks the grid items if true
@@ -305,7 +305,7 @@ let url = window.backend_url;
                             marks_value.push(temp4Ctrl.marksData[x].marks)
                             marks_labels.push(temp4Ctrl.marksData[x].subject)
                         }
-                        console.log(marks_value + marks_labels)
+                        // console.log(marks_value + marks_labels)
                         makechart(marks_value, marks_labels)
                     },
                     error = (response) => {
@@ -381,6 +381,20 @@ let url = window.backend_url;
 (() => {
     angular.module('app')
         .controller('template5Controller', function ($http) {
+            let temp5Ctrl = this;
+            $http({
+                method: 'GET',
+                url: url + "get_timetable"
+            })
+                .then(
+                    success = (response) => {
+                        console.log(response.data)
+                        temp5Ctrl.timetable = response.data;
+                    },
+                    error = (response) => {
+                        console.log(response.data)
+                    }
+                )
             console.log("tremplate5")
         })
 })();

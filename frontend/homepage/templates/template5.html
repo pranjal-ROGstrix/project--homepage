@@ -1,1 +1,74 @@
-this is temp 5
+<style>
+  .temp5 {
+    border-radius: 0.25rem;
+    /* padding: 0.5rem 1rem; */
+    background: var(--color-background--template);
+    animation: topAnimation 0.5s;
+  }
+  .temp5--title--heading {
+    font-style: inherit;
+    color: var(--color-heading-template);
+    font-weight: 700;
+    padding: 2rem 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+  .temp5--time_table {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+  }
+  .timetable--period_number {
+    background-color: red;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: inline-block;
+    font-weight: 700 !important;
+    /* border: 0.1rem solid black; */
+  }
+  .timetable--subject_name {
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  .timetable--subject_teacher {
+    font-weight: 300;
+  }
+</style>
+<div class="temp5">
+  <div class="temp5--title">
+    <h2 class="temp5--title--heading text-center">TIME TABLE</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 col-12">
+        <div class="temp5--time_table">
+          <div ng-repeat="x in temp5Ctrl.timetable">
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                  <div class="timetable--period_number text-center">
+                    {{$index+1}}
+                  </div>
+                </div>
+                <div class="col-10">
+                  <p class="timetable--subject_name">{{x.subject_name}}</p>
+                  <p class="timetable--subject_details">
+                    <span class="timetable--class_type"
+                      >({{x.class_type}}) -
+                    </span>
+                    <span class="timetable--subject_teacher"
+                      >{{x.subject_teacher}}</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- class_type: "LAB"
+id: 1
+subject_name: "DISCRETE STRUCTURE & LOGIC LAB"
+subject_teacher: "NEHA GUPTA, ARTI SHARMA"
+ -->
+</div>
