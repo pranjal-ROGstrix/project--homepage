@@ -35,16 +35,19 @@ let url = window.backend_url;
             main.user.name = sessionStorage.name;
             main.user.lib_id = sessionStorage.lib_id;
             console.log(main)
-            // "template1", "template2", 
+            // "template1", "template2", "template3", 
             // gridster 
-            main.templates = ["template1", "template2", "template3"]
+            main.templates = ["template1", "template2", "template3", "template4", "template5"]
             main.standardItems = [
                 { sizeX: 6, sizeY: 2, row: 0, col: 0 },//template 1(attendance)
-                { sizeX: 4, sizeY: 2, row: 2, col: 0 },//template 2()
-                { sizeX: 2, sizeY: 2, row: 2, col: 4 },
+                { sizeX: 4, sizeY: 2, row: 2, col: 0 },//template 2(calendar)
+                { sizeX: 2, sizeY: 2, row: 2, col: 4 },//template 3(birthday)
+                { sizeX: 3, sizeY: 2, row: 4, col: 0 },//template 4(marks)
+                { sizeX: 3, sizeY: 2, row: 4, col: 3 },//template 5(timetable)
+
             ];
             main.gridsterOpts = {
-                // columns: 6, // the width of the grid, in columns
+                columns: 6, // the width of the grid, in columns
                 pushing: true, // whether to push other items out of the way on move or resize
                 floating: true, // whether to automatically float items up so they stack (you can temporarily disable if you are adding unsorted items with ng-repeat)
                 swapping: false, // whether or not to have items of the same size switch places instead of pushing down if they are the same size
@@ -281,7 +284,106 @@ let url = window.backend_url;
             console.log("template3")
         })
 })();
-(() => { })();
+(() => {
+    angular.module('app')
+        .controller('template4Controller', function ($http, $timeout) {
+            let temp4Ctrl = this;
+            $http({
+                method: "POST",
+                url: url + "get_marks/",
+                data: {
+                    "lib_id": sessionStorage.lib_id
+                }
+            })
+                .then(
+                    success = (response) => {
+                        console.log(response.data)
+                        temp4Ctrl.marksData = response.data;
+                        let marks_value = [];
+                        let marks_labels = [];
+                        for (let x = 0; x < temp4Ctrl.marksData.length; x++) {
+                            marks_value.push(temp4Ctrl.marksData[x].marks)
+                            marks_labels.push(temp4Ctrl.marksData[x].subject)
+                        }
+                        console.log(marks_value + marks_labels)
+                        makechart(marks_value, marks_labels)
+                    },
+                    error = (response) => {
+                        console.log(response.data)
+                    }
+                )
+            makechart = (marks_value, marks_labels) => {
+                var ctxx = document.getElementById("myChart1").getContext("2d");
+                var myChart = new Chart(ctxx, {
+                    type: "bar",
+                    data: {
+                        labels: marks_labels,
+                        datasets: [
+                            {
+                                label: "Score",
+                                data: marks_value,
+                                backgroundColor: [
+                                    "rgba(255, 99, 132, 0.2)",
+                                    "rgba(54, 162, 235, 0.2)",
+                                    "rgba(255, 206, 86, 0.2)",
+                                    "rgba(75, 192, 192, 0.2)",
+                                    "rgba(153, 102, 255, 0.2)",
+                                    "rgba(255, 159, 64, 0.2)",
+                                ],
+                                borderColor: [
+                                    "rgba(255, 99, 132, 1)",
+                                    "rgba(54, 162, 235, 1)",
+                                    "rgba(255, 206, 86, 1)",
+                                    "rgba(75, 192, 192, 1)",
+                                    "rgba(153, 102, 255, 1)",
+                                    "rgba(255, 159, 64, 1)",
+                                ],
+                                borderWidth: 1,
+                            },
+                        ],
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [
+                                {
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        min: 0,
+                                        id: "hello"
+                                    },
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'MARKS'
+                                    }
+                                },
+                            ],
+
+                            xAxes: [
+                                {
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'SUBJECTS'
+                                    }
+                                }
+                            ]
+                        },
+                    },
+                });
+            };
+
+
+        })
+    console.log("tremplate4")
+})();
+
+
+(() => {
+    angular.module('app')
+        .controller('template5Controller', function ($http) {
+            console.log("tremplate5")
+        })
+})();
 
 
 // UI.Routing 
@@ -307,16 +409,20 @@ let url = window.backend_url;
                             templateUrl: './templates/template3.html',
                             controller: 'template3Controller',
                             controllerAs: 'temp3Ctrl'
+                        },
+                        'template4': {
+                            templateUrl: './templates/template4.html',
+                            controller: 'template4Controller',
+                            controllerAs: 'temp4Ctrl'
+                        },
+                        'template5': {
+                            templateUrl: './templates/template5.html',
+                            controller: 'template5Controller',
+                            controllerAs: 'temp5Ctrl'
                         }
                     }
                 })
             $urlRouterProvider.otherwise('/dashboard');
         })
 })();
-(() => { })();
-(() => { })();
-(() => { })();
-(() => { })();
-(() => { })();
-(() => { })();
 (() => { })();

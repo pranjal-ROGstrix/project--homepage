@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-from .models import login
-from .models import birthday
-from .models import attendance
+from .models import login, birthday, attendance, marks
 # Create your views here.
 
 
@@ -41,4 +39,16 @@ def get_attendance(request):
         if attendance.objects.filter(key__lib_id=lib_id).exists():
             response = list(attendance.objects.filter(
                 key__lib_id=lib_id).values())
+        return JsonResponse(response, safe=False)
+
+
+def get_marks(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        print(data)
+        lib_id = data['lib_id']
+        if marks.objects.filter(key__lib_id=lib_id).exists():
+            response = list(marks.objects.filter(
+                key__lib_id=lib_id).values()
+            )
         return JsonResponse(response, safe=False)

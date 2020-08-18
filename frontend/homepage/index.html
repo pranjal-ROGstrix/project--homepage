@@ -601,7 +601,11 @@
       <script src="../backend_url.js"></script>
       <script src="./index.js"></script>
       <script>
-        $("#loader").attr("ng-hide", "true");
+        (() => {
+          angular.element(
+            document.querySelector("#loader").setAttribute("ng-hide", "true")
+          );
+        })();
       </script>
     </div>
   </body>
