@@ -9,7 +9,7 @@
     font-style: inherit;
     color: var(--color-heading-template);
     font-weight: 700;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
     letter-spacing: 0.2rem;
   }
   .temp5--time_table {
@@ -23,6 +23,9 @@
     display: inline-block;
     font-weight: 700 !important;
     /* border: 0.1rem solid black; */
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
   }
   .timetable--subject_name {
     font-weight: 600;
@@ -30,6 +33,11 @@
   }
   .timetable--subject_teacher {
     font-weight: 300;
+  }
+  .myline {
+    margin-left: 0.7rem;
+    border-left: 2px solid red;
+    height: 100%;
   }
 </style>
 <div class="temp5">
@@ -46,6 +54,9 @@
                 <div class="col-2">
                   <div class="timetable--period_number text-center">
                     {{$index+1}}
+                  </div>
+                  <div class="myline" ng-if="! $last">
+                    <!-- &darr; -->
                   </div>
                 </div>
                 <div class="col-10">

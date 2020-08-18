@@ -42,8 +42,8 @@ let url = window.backend_url;
                 { sizeX: 6, sizeY: 2, row: 0, col: 0 },//template 1(attendance)
                 { sizeX: 4, sizeY: 2, row: 2, col: 0 },//template 2(calendar)
                 { sizeX: 2, sizeY: 2, row: 2, col: 4 },//template 3(birthday)
-                { sizeX: 3, sizeY: 3, row: 4, col: 0 },//template 4(marks)
-                { sizeX: 3, sizeY: 3, row: 4, col: 3 },//template 5(timetable)
+                { sizeX: 3, sizeY: 2, row: 4, col: 0 },//template 4(marks)
+                { sizeX: 3, sizeY: 2, row: 4, col: 3 },//template 5(timetable)
 
             ];
             main.gridsterOpts = {
