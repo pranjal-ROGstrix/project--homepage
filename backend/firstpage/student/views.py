@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
-from .models import login, birthday, attendance, marks
+from .models import login, birthday, attendance, marks, timetable
 # Create your views here.
 
 
@@ -51,4 +51,10 @@ def get_marks(request):
             response = list(marks.objects.filter(
                 key__lib_id=lib_id).values()
             )
+        return JsonResponse(response, safe=False)
+
+
+def get_timetable(request):
+    if request.method == "GET":
+        response = list(timetable.objects.values())
         return JsonResponse(response, safe=False)

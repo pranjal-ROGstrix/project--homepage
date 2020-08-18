@@ -28,3 +28,9 @@ class attendance(models.Model):
     attendance_percentage = models.CharField(max_length=4)
     attendance_present = models.CharField(max_length=4)
     attendance_total = models.CharField(max_length=4)
+
+
+class timetable(models.Model):
+    subject_name = models.CharField(max_length=30)
+    subject_teacher = models.CharField(max_length=40)
+    class_type = models.CharField(max_length=10)

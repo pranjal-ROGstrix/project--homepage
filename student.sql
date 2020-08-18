@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2020 at 01:32 AM
+-- Generation Time: Aug 18, 2020 at 01:55 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -91,7 +91,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (27, 'Can delete marks', 9, 'delete_marks'),
 (28, 'Can add attendance', 10, 'add_attendance'),
 (29, 'Can change attendance', 10, 'change_attendance'),
-(30, 'Can delete attendance', 10, 'delete_attendance');
+(30, 'Can delete attendance', 10, 'delete_attendance'),
+(31, 'Can add timetable', 11, 'add_timetable'),
+(32, 'Can change timetable', 11, 'change_timetable'),
+(33, 'Can delete timetable', 11, 'delete_timetable');
 
 -- --------------------------------------------------------
 
@@ -180,7 +183,8 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (10, 'student', 'attendance'),
 (8, 'student', 'birthday'),
 (7, 'student', 'login'),
-(9, 'student', 'marks');
+(9, 'student', 'marks'),
+(11, 'student', 'timetable');
 
 -- --------------------------------------------------------
 
@@ -218,7 +222,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'student', '0002_attendance_birthday_marks', '2020-08-12 12:01:30.673496'),
 (17, 'student', '0003_birthday_date', '2020-08-12 12:14:25.386491'),
 (18, 'student', '0004_auto_20200812_1225', '2020-08-12 12:25:37.268323'),
-(19, 'student', '0005_login_name', '2020-08-13 23:00:45.438198');
+(19, 'student', '0005_login_name', '2020-08-13 23:00:45.438198'),
+(20, 'student', '0006_timetable', '2020-08-18 01:44:43.863258');
 
 -- --------------------------------------------------------
 
@@ -326,6 +331,32 @@ INSERT INTO `student_marks` (`id`, `subject`, `marks`, `key_id`) VALUES
 (4, 'KVE-301', '50', 1),
 (6, 'KCS-301', 'N/A', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_timetable`
+--
+
+CREATE TABLE `student_timetable` (
+  `id` int(11) NOT NULL,
+  `subject_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_teacher` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `student_timetable`
+--
+
+INSERT INTO `student_timetable` (`id`, `subject_name`, `subject_teacher`, `class_type`) VALUES
+(1, 'DISCRETE STRUCTURE & LOGIC LAB', 'NEHA GUPTA, ARTI SHARMA', 'LAB'),
+(2, 'DISCRETE STRUCTURE & LOGIC LAB', 'NEHA GUPTA, ARTI SHARMA', 'LAB'),
+(3, 'MATHEMATICS-IV', 'DEEPTI SETH', 'THEORY'),
+(4, 'DATA STRUCTURES', 'AMAN JOLLY', 'THEORY'),
+(5, 'MATHEMATICS-IV', 'DEEPTI SETH', 'THEORY'),
+(6, 'SOFT SKILL', 'DIMPLE RAJ, HITESH KUMAR CHADHA', 'VALUE'),
+(7, 'DISCRETE STRUCTURES', ' ARTI SHARMA', 'THEORY');
+
 --
 -- Indexes for dumped tables
 --
@@ -430,6 +461,12 @@ ALTER TABLE `student_marks`
   ADD KEY `student_marks_key_id_92d210a2_fk_student_login_id` (`key_id`);
 
 --
+-- Indexes for table `student_timetable`
+--
+ALTER TABLE `student_timetable`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -449,7 +486,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
@@ -479,13 +516,13 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `student_attendance`
@@ -510,6 +547,12 @@ ALTER TABLE `student_login`
 --
 ALTER TABLE `student_marks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `student_timetable`
+--
+ALTER TABLE `student_timetable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
