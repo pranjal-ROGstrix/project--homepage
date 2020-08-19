@@ -1,46 +1,3 @@
-<style>
-  .temp5 {
-    border-radius: 0.25rem;
-    /* padding: 0.5rem 1rem; */
-    background: var(--color-background--template);
-    animation: topAnimation 0.5s;
-  }
-  .temp5--title--heading {
-    font-style: inherit;
-    color: var(--color-heading-template);
-    font-weight: 700;
-    padding: 1rem 1.5rem;
-    letter-spacing: 0.2rem;
-  }
-  .temp5--time_table {
-    padding: 0 0.5rem 0.5rem 0.5rem;
-  }
-  .timetable--period_number {
-    color: black;
-    background-color: red;
-    border-radius: 50%;
-    height: 1.5rem;
-    width: 1.5rem;
-    display: inline-block;
-    font-weight: 700 !important;
-    /* border: 0.1rem solid black; */
-    -webkit-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
-    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
-  }
-  .timetable--subject_name {
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-  .timetable--subject_teacher {
-    font-weight: 300;
-  }
-  .myline {
-    margin-left: 0.7rem;
-    border-left: 2px solid red;
-    height: 100%;
-  }
-</style>
 <div class="temp5">
   <div class="temp5--title">
     <h2 class="temp5--title--heading text-center">TIME TABLE</h2>
@@ -53,20 +10,22 @@
             <div class="container">
               <div class="row">
                 <div class="col-2">
-                  <div class="timetable--period_number text-center">
+                  <div class="temp5--time_table--period_number text-center">
                     {{$index+1}}
                   </div>
-                  <div class="myline" ng-if="! $last">
+                  <div class="temp5--time_table--periodline" ng-if="! $last">
                     <!-- &darr; -->
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{x.subject_name}}</p>
-                  <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
+                  <p class="temp5--time_table--subject_name">
+                    {{x.subject_name}}
+                  </p>
+                  <p class="temp5--time_table--subject_details">
+                    <span class="temp5--time_table--class_type"
                       >({{x.class_type}}) -
                     </span>
-                    <span class="timetable--subject_teacher"
+                    <span class="temp5--time_table--subject_teacher"
                       >{{x.subject_teacher}}</span
                     >
                   </p>

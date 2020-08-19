@@ -1,0 +1,422 @@
+@import "./sass_partials/animations";
+@import "./sass_partials/variables";
+@import "./sass_partials/loader";
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none !important;
+  color: $color-dark-secondary !important;
+  /* color: #cdc8c0; */
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+}
+/* Scrollbar styling */
+/* width */
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $color-background;
+  /* background: #f1f1f1; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-background--template;
+  /* background: #888; */
+}
+
+/* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+/* background: #555; */
+// }
+
+/* #1b1b1b */
+
+.navbar {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  z-index: 9999;
+}
+.navbar-styling a {
+  color: white !important;
+  font-size: 1.3rem;
+}
+.navbar-styling {
+  color: white !important;
+  background: linear-gradient(90deg, #137aa9 0, #23a9e6);
+}
+
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+}
+
+.navbar-brand-primary {
+  font-weight: 600;
+}
+
+.navbar-brand-secondary {
+  font-weight: 300;
+}
+.navbar-toggler {
+  background-color: transparent !important;
+}
+
+/* .navbar-brand {
+  margin-left: 3rem;
+} */
+.sidenav {
+  height: 100vh;
+  width: 0;
+  opacity: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: all 0.5s;
+  padding-top: 60px;
+  -webkit-box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
+  -moz-box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
+  box-shadow: inset 0px 0px 13px 0px rgba(46, 74, 117, 0.8);
+  & a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.2s;
+    &:hover {
+      color: #f1f1f1 !important;
+    }
+  }
+  &__icon {
+    margin-right: 1rem;
+    float: right;
+  }
+}
+
+.fas {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.closed_state {
+  /* width: 0px; */
+  opacity: 0;
+}
+.open_state {
+  width: 250px;
+  opacity: 1;
+}
+
+.main {
+  margin-top: 3.4rem;
+  background-color: $color-background;
+  /* background-size: 100% 100%; */
+  /* width: 100%; */
+  /* height: 200vh; */
+  color: $color-dark-primary;
+  font-family: "Open Sans", sans-serif;
+  padding: 1.5rem;
+  &__section--content {
+    margin-left: 250px;
+    transition: margin-left 0.5s;
+  }
+}
+
+/* breadcrumb */
+/* the breadcrumb is not dynamic */
+
+.breadcrumb {
+  &__div ol {
+    padding: 0.5rem 0.8rem;
+    background-color: $color-background--template !important;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    animation: topAnimation 0.5s;
+  }
+  &-item {
+    color: $color-dark-secondary !important;
+    &.active {
+      color: #007bff !important;
+    }
+    & + &::before {
+      padding-right: 0.5rem;
+      color: #6c757d;
+      content: ">" !important;
+    }
+  }
+}
+
+/* this deals with the username */
+.user__name {
+  animation: topAnimation 0.5s;
+  &--h2 {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    background-color: $color-background--template;
+  }
+}
+
+/* Media Queries to make everything better :) */
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 15px;
+  }
+  .fas {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .main__section--content {
+    margin-left: 0px;
+  }
+  .user__name--h2--span {
+    display: block;
+  }
+}
+
+.temp1,
+.temp2,
+.temp3,
+.user__name,
+.div__breadcrumb {
+  -webkit-box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+  -moz-box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+  box-shadow: 0px 0px 25px -8px rgba(46, 74, 117, 1);
+}
+
+// template 1 styling begin
+
+.temp1 {
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  background: $color-background--template;
+  animation: topAnimation 0.5s;
+
+  &--title--heading {
+    font-style: inherit;
+    color: $color-heading-template;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+  &--table {
+    // margin: 1rem 0rem;
+    padding: 2rem;
+    font-family: "Open Sans", sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: $color-dark-primary;
+    td,
+    th {
+      border-top: 0;
+      /* border: 1px solid #ddd; */
+      padding: 8px;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: transparent;
+      color: white;
+    }
+  }
+}
+
+#myChart {
+  margin: 1rem 0;
+}
+
+// template 1 styling end
+
+//template 2 styling start
+
+.temp2 {
+  border-radius: 0.25rem;
+  animation: myCalendarAnimate 0.5s;
+  /* padding: 0 1rem !important; */
+  height: 100%;
+  width: 100%;
+  background: $color-background--template;
+  /* overflow: hidden; */
+  /* height: inherit; */
+  /* width: 100%; */
+
+  &--calendar {
+    padding: 0.5rem;
+  }
+  &--title--heading {
+    font-style: inherit;
+    color: $color-heading-template;
+    font-weight: 700;
+    padding: 1rem 1.5rem 0 1.5rem;
+    /* letter-spacing: 0.2rem; */
+  }
+}
+
+//template 2 styling end
+
+// template 3 styling begin
+
+.temp3 {
+  border-radius: 0.25rem;
+  animation: mytemp3Animate 0.5s;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+  /* background: var(--color-background--template); */
+  background: #222;
+
+  &--main {
+    background-color: #111;
+    padding: 1rem 0;
+  }
+  ul &--birthday--list {
+    padding: 0.5rem 0;
+  }
+  &--birthday--list .container {
+    height: 10% !important;
+  }
+  &--birthday--div {
+    padding: 1rem;
+  }
+  &--title--heading {
+    font-style: inherit;
+    color: white;
+    /* color: var(--color-heading-template); */
+    font-weight: 700;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    /* letter-spacing: 0.2rem; */
+  }
+  &--imgContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 10px; */
+  }
+  &--birthday--data {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    /* flex-direction: column; */
+  }
+  &--birthday--data {
+    &__left {
+      box-shadow: -3px 0px 0px 0px #00ccff;
+      /* outline-left: 0.2rem solid orange; */
+      border-left: 0.5rem solid transparent;
+      /* border-left: 0.2rem solid orange; */
+    }
+    &__right {
+      box-shadow: 3px 0px 0px 0px #e05d6f;
+      /* outline-left: 0.2rem solid orange; */
+      border-right: 0.5rem solid transparent;
+      /* border-left: 0.2rem solid orange; */
+    }
+  }
+  &--images {
+    &--left,
+    &--right {
+      height: 50%;
+      width: 100%;
+    }
+  }
+  &--span {
+    &--title {
+      color: gray;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    &--value {
+      color: gray;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+//   template 3 styling end
+//template 4 styling start
+.temp4 {
+  border-radius: 0.25rem;
+  /* padding: 0.5rem 1rem; */
+  background: $color-background--template;
+  animation: topAnimation 0.5s;
+  &--title--heading {
+    font-style: inherit;
+    color: $color-heading-template;
+    font-weight: 700;
+    padding: 2rem 0rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+//template 4 styling end
+//template 5 styling start
+.temp5 {
+  border-radius: 0.25rem;
+  /* padding: 0.5rem 1rem; */
+  background: $color-background--template;
+  animation: topAnimation 0.5s;
+
+  &--title--heading {
+    font-style: inherit;
+    color: $color-heading-template;
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    letter-spacing: 0.2rem;
+  }
+  &--time_table {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+
+    &--period_number {
+      color: black;
+      background-color: red;
+      border-radius: 50%;
+      height: 1.5rem;
+      width: 1.5rem;
+      display: inline-block;
+      font-weight: 700 !important;
+      /* border: 0.1rem solid black; */
+      -webkit-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
+      -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
+      box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1);
+    }
+    &--subject_name {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    &--subject_teacher {
+      font-weight: 300;
+    }
+    &--periodline {
+      margin-left: 0.7rem;
+      border-left: 2px solid red;
+      height: 100%;
+    }
+  }
+}
+
+//template 5 styling end
