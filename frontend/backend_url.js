@@ -1,1 +1,1 @@
-window.backend_url = "http://c290c7e76709.ngrok.io/student/";
+window.backend_url = "http://127.0.0.1:8000/student/";

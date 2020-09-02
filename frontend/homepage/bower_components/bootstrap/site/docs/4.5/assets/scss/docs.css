@@ -8,8 +8,7 @@
 .bd-navbar {
   min-height: 4rem;
   background-color: #7952b3;
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 991.98px) {
@@ -32,9 +31,8 @@
 }
 
 @media (min-width: 768px) {
-  @supports ((position: -webkit-sticky) or (position: sticky)) {
+  @supports (position: sticky) {
     .bd-navbar {
-      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 1071;
@@ -77,7 +75,6 @@
 .bd-masthead {
   position: relative;
   padding: 3rem 15px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #f7f5fb), color-stop(50%, #fff));
   background: linear-gradient(to right bottom, #f7f5fb 50%, #fff 50%);
 }
 
@@ -164,16 +161,13 @@
 
 .masthead-followup-icon {
   padding: .75rem;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.01)));
   background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.01));
   border-radius: 0.75rem;
-  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 .masthead-followup-svg {
-  -webkit-filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.125));
-          filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.125));
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.125));
 }
 
 #carbonads {
@@ -213,9 +207,7 @@
 }
 
 .bd-content {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  order: 1;
 }
 
 .bd-content > h2[id],
@@ -390,17 +382,14 @@
 }
 
 .bd-toc {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
+  order: 2;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   font-size: 0.875rem;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .bd-toc {
-    position: -webkit-sticky;
     position: sticky;
     top: 4rem;
     height: calc(100vh - 4rem);
@@ -433,9 +422,7 @@
 }
 
 .bd-sidebar {
-  -webkit-box-ordinal-group: 1;
-      -ms-flex-order: 0;
-          order: 0;
+  order: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -443,9 +430,8 @@
   .bd-sidebar {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
   }
-  @supports ((position: -webkit-sticky) or (position: sticky)) {
+  @supports (position: sticky) {
     .bd-sidebar {
-      position: -webkit-sticky;
       position: sticky;
       top: 4rem;
       z-index: 1000;
@@ -456,9 +442,7 @@
 
 @media (min-width: 1200px) {
   .bd-sidebar {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 320px;
-            flex: 0 1 320px;
+    flex: 0 1 320px;
   }
 }
 
@@ -470,7 +454,7 @@
 }
 
 @media (min-width: 768px) {
-  @supports ((position: -webkit-sticky) or (position: sticky)) {
+  @supports (position: sticky) {
     .bd-links {
       max-height: calc(100vh - 9rem);
       overflow-y: auto;
@@ -494,8 +478,7 @@
 
 .bd-search .form-control:focus {
   border-color: #7952b3;
-  -webkit-box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
-          box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+  box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
 }
 
 .bd-search-docs-toggle {
@@ -642,11 +625,8 @@
 }
 
 .example-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -660,18 +640,14 @@
 
 @media (min-width: 576px) {
   .example-content-main {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    flex: 0 0 50%;
     max-width: 50%;
   }
 }
 
 @media (min-width: 992px) {
   .example-content-main {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 66.66667%;
-            flex: 0 0 66.66667%;
+    flex: 0 0 66.66667%;
     max-width: 66.66667%;
   }
 }
@@ -685,18 +661,14 @@
 
 @media (min-width: 576px) {
   .example-content-secondary {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    flex: 0 0 50%;
     max-width: 50%;
   }
 }
 
 @media (min-width: 992px) {
   .example-content-secondary {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 33.33333%;
-            flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
     max-width: 33.33333%;
   }
 }
@@ -991,8 +963,7 @@
 }
 
 .btn-bd-primary:focus {
-  -webkit-box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
-          box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+  box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
 }
 
 .btn-bd-download {
@@ -1008,8 +979,7 @@
 }
 
 .btn-bd-download:focus {
-  -webkit-box-shadow: 0 0 0 3px rgba(255, 228, 132, 0.25);
-          box-shadow: 0 0 0 3px rgba(255, 228, 132, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 228, 132, 0.25);
 }
 
 .btn-bd-light {
@@ -1024,8 +994,7 @@
 }
 
 .btn-bd-light:focus {
-  -webkit-box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
-          box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+  box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
 }
 
 .bd-callout {
@@ -1321,10 +1290,7 @@
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .bd-placeholder-img-lg {
@@ -1586,31 +1552,23 @@
 .language-sh::before {
   color: #009;
   content: "$ ";
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .language-powershell::before {
   color: #009;
   content: "PM> ";
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .anchorjs-link {
   font-weight: 400;
   color: rgba(0, 123, 255, 0.5);
-  -webkit-transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .anchorjs-link {
-    -webkit-transition: none;
     transition: none;
   }
 }
@@ -1622,9 +1580,7 @@
 
 .algolia-autocomplete {
   display: block !important;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
@@ -1635,8 +1591,7 @@
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
 
 @media (min-width: 768px) {
@@ -1698,11 +1653,8 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   float: none !important;
   width: 100% !important;
   padding: .25rem 1rem !important;
@@ -1730,9 +1682,7 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
+  flex: 0 0 100%;
   max-width: 100%;
   padding: .2rem 0;
   font-size: 0.8125rem !important;
@@ -1766,11 +1716,9 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-  -webkit-box-shadow: inset 0 -2px 0 0 rgba(95, 45, 171, 0.5) !important;
-          box-shadow: inset 0 -2px 0 0 rgba(95, 45, 171, 0.5) !important;
+  box-shadow: inset 0 -2px 0 0 rgba(95, 45, 171, 0.5) !important;
 }
 
 .algolia-autocomplete .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
   background-color: rgba(208, 189, 236, 0.15) !important;
 }
-/*# sourceMappingURL=docs.css.map */

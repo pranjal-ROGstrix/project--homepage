@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="./index.css" />
     <title>Student</title>
   </head>
-  <body ng-controller="MainController as main" data-spy="scroll">
+  <body ng-controller="MainController as main" data-spy="scroll" class="light">
     <!-- Http loader -->
     <section ng-hide="false" id="loader">
       <div class="LoaderContainer">
@@ -102,6 +102,11 @@
           >Update DOB<span class="sidenav__icon"
             ><i class="fa fa-birthday-cake"></i></span
         ></a>
+        <a href="#"
+          ><button class="btn btn-dark" ng-click="main.darkMode()">
+            {{main.enable_disable}} Dark Mode
+          </button></a
+        >
       </div>
     </section>
 

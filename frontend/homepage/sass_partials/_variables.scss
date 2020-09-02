@@ -6,6 +6,7 @@ $color-heading-template: #1199d3;
 
 // loader
 
-$bar-color: #fff;
-$ball-color: #fff;
+$bar-color: var(--color-dark-primary);
+$ball-color: var(--color-dark-primary);
 $bg-color: #ea4961;
+$color-loader-background: var(--color-background);

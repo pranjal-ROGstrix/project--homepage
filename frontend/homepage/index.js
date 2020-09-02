@@ -5,7 +5,7 @@ let url = window.backend_url;
 })();
 (() => {
     angular.module('app')
-        .controller('MainController', function ($window) {
+        .controller('MainController', function ($window, $timeout) {
             if (sessionStorage.length < 2) {
                 $window.location = "../login/index.html"
             }
@@ -84,6 +84,26 @@ let url = window.backend_url;
                     stop: function (event, $element, widget) { } // optional callback fired when item is finished dragging
                 }
             };
+            main.enable_disable = "Enable";
+            main.enable_disable_counter = 1;
+            main.darkMode = () => {
+                if (main.enable_disable_counter % 2 == 0) {
+                    main.enable_disable = "Enable";
+                }
+                else {
+                    main.enable_disable = "Disable";
+                }
+                main.enable_disable_counter += 1;
+                document.body.classList.toggle("light");
+                // main.enable_disable = "Disable";
+                (() => {
+                    document.body.classList.add('document_transition');
+                    console.log("Toggling")
+                    $timeout(() => {
+                        document.body.classList.remove('document_transition');
+                    }, 1100)
+                })()
+            }
         })
 })();
 // template 1 controller => Attendance
@@ -146,23 +166,29 @@ let url = window.backend_url;
                 var myDoughnutChart = new Chart(ctx, {
                     type: "doughnut",
                     data: {
-
+                        // #004c6d
+                        // #00628e
+                        // #0079b0
+                        // #0090d4
+                        // #00a8f9
                         labels: myChartLabels,
                         datasets: [
                             {
                                 label: "# of Votes",
                                 data: myChartPercentage,
                                 backgroundColor: [
-                                    'rgba(54, 162, 235, 0.6)',
+                                    "rgba(54, 162, 235, 0.8)",
+                                    "rgba(255, 206, 86, 0.6)",
                                     "rgba(75, 192, 192, 0.6)",
-                                    'rgba(255, 159, 64, 0.6)',
                                     "rgba(255, 99, 132, 0.6)",
+
+                                    // "rgba(153, 102, 255, 0.6)",
 
                                 ],
                                 borderColor: [
-                                    'rgba(54, 162, 235, 1)',
+                                    "rgba(54, 162, 235, 1)",
+                                    "rgba(255, 206, 86, 1)",
                                     "rgba(75, 192, 192, 1)",
-                                    'rgba(255, 159, 64, 1)',
                                     "rgba(255, 99, 132, 1)",
                                 ],
                                 borderWidth: 1,
@@ -323,12 +349,12 @@ let url = window.backend_url;
                                 label: "Score",
                                 data: marks_value,
                                 backgroundColor: [
-                                    "rgba(255, 99, 132, 0.2)",
-                                    "rgba(54, 162, 235, 0.2)",
-                                    "rgba(255, 206, 86, 0.2)",
-                                    "rgba(75, 192, 192, 0.2)",
-                                    "rgba(153, 102, 255, 0.2)",
-                                    "rgba(255, 159, 64, 0.2)",
+                                    "rgba(255, 99, 132, 0.8)",
+                                    "rgba(54, 162, 235, 0.8)",
+                                    "rgba(255, 206, 86, 0.8)",
+                                    "rgba(75, 192, 192, 0.8)",
+                                    "rgba(153, 102, 255, 0.8)",
+                                    "rgba(255, 159, 64, 0.8)",
                                 ],
                                 borderColor: [
                                     "rgba(255, 99, 132, 1)",
